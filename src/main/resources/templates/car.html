@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>
+<center><span  th:text="${info}" th:style="'color: '+${infoColor}"></span></center>
+
+</h1>
+
+<br/>
+<p th:text="#{hello.message}"></p>
+
+<form th:action="@{/car}" method="post" th:object="${carForm}">
+    <p th:if="${#fields.hasErrors('produktionYear')}" th:errors="*{produktionYear}"></p>
+    Production Year<input type="number" th:field="*{produktionYear}" th:name="produktionYear"/><p></p>
+    <p th:if="${#fields.hasErrors('modelCar')}" th:errors="*{modelCar}"></p>
+    Model Car<input type="text"  th:field="*{modelCar}" th:name="modelCar"/> <p></p>
+    <p th:if="${#fields.hasErrors('companyCar')}" th:errors="*{companyCar}"></p>
+    Company Car<input type="text" th:field="*{companyCar}" th:name="companyCar"/><p></p>
+    <input type="submit" value="Wyslij"/>
+
+</form>
+
+</body>
+</html>
